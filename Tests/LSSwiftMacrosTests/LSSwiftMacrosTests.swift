@@ -12,5 +12,25 @@ let testMacros: [String: Macro.Type] = [
 #endif
 
 final class LSSwiftMacrosTests: XCTestCase {
-   
+    func testDefault_HappyPath() {
+        assertMacroExpansion(
+            """
+            struct Person {
+                @Localized
+                var name: String {
+                    "123"
+                }
+            }
+            """,
+            expandedSource: #"""
+            struct Person {
+                @Localized
+                var name: String {
+                    "123"
+                }
+            }
+            """#,
+            macros: testMacros
+        )
+    }
 }

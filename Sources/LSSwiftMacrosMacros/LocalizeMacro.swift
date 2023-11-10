@@ -19,7 +19,7 @@ public struct LocalizeMacro: ExpressionMacro {
         of node: some FreestandingMacroExpansionSyntax,
         in context: some MacroExpansionContext
     ) throws -> ExprSyntax {
-        guard let argument = node.argumentList.first?.expression.as(StringLiteralExprSyntax.self) else {
+        guard let argument = node.argumentList.first?.expression else {
             throw LocalizeError.onlyApplicableToString
         }
         
@@ -31,5 +31,6 @@ public struct LocalizeMacro: ExpressionMacro {
 struct LSSwiftMacrosPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         LocalizeMacro.self,
+        URLMacro.self,
     ]
 }
