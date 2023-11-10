@@ -8,4 +8,4 @@
 ///
 /// produces a tuple `(x + y, "x + y")`.
 @freestanding(expression)
-public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "LSSwiftMacrosMacros", type: "StringifyMacro")
+public macro Localized(_ stringResource: String) -> String = #externalMacro(module: "LSSwiftMacrosMacros", type: "LocalizeMacro")
