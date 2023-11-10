@@ -12,14 +12,6 @@ import Foundation
 @freestanding(expression)
 public macro Localized(_ stringResource: String) -> String = #externalMacro(module: "LSSwiftMacrosMacros", type: "LocalizeMacro")
 
-@propertyWrapper
-public struct Localized {
-    public var wrappedValue: String
-    
-    public init(wrappedValue: String) {
-        self.wrappedValue = #Localized(wrappedValue)
-    }
-}
 
 // url macro
 @freestanding(expression) 
